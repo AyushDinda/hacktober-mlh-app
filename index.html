@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f6ef">
+    <meta name="description" content="A small, private space to check in with yourself each day.">
+    <title>Daymark | Daily mood check-in</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="wordmark" href="#main" aria-label="Daymark home">
+          <span class="wordmark-icon" aria-hidden="true">d</span>
+          <span>daymark</span>
+        </a>
+        <p class="privacy-note"><span aria-hidden="true">●</span> Just for you</p>
+      </header>
+
+      <section class="page-heading" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow" id="today-label">YOUR DAILY CHECK-IN</p>
+          <h1 id="page-title">How are you, <em>really?</em></h1>
+        </div>
+        <p class="heading-note">A moment for yourself, whatever the day holds.</p>
+      </section>
+
+      <div class="dashboard" id="main">
+        <section class="checkin-panel" aria-labelledby="checkin-title">
+          <div class="panel-heading">
+            <span class="step-mark" aria-hidden="true">01</span>
+            <div>
+              <p class="eyebrow">PAUSE & NOTICE</p>
+              <h2 id="checkin-title">Pick what fits today</h2>
+            </div>
+          </div>
+
+          <form id="mood-form">
+            <fieldset class="mood-fieldset">
+              <legend class="visually-hidden">Choose your mood</legend>
+              <div class="mood-options" id="mood-options">
+                <button class="mood-option mood-happy" type="button" data-mood="happy" aria-pressed="false">
+                  <span class="mood-emoji" aria-hidden="true">😊</span>
+                  <span class="mood-name">Happy</span>
+                </button>
+                <button class="mood-option mood-okay" type="button" data-mood="okay" aria-pressed="false">
+                  <span class="mood-emoji" aria-hidden="true">😐</span>
+                  <span class="mood-name">Okay</span>
+                </button>
+                <button class="mood-option mood-sad" type="button" data-mood="sad" aria-pressed="false">
+                  <span class="mood-emoji" aria-hidden="true">😔</span>
+                  <span class="mood-name">Sad</span>
+                </button>
+                <button class="mood-option mood-angry" type="button" data-mood="angry" aria-pressed="false">
+                  <span class="mood-emoji" aria-hidden="true">😡</span>
+                  <span class="mood-name">Angry</span>
+                </button>
+                <button class="mood-option mood-tired" type="button" data-mood="tired" aria-pressed="false">
+                  <span class="mood-emoji" aria-hidden="true">😴</span>
+                  <span class="mood-name">Tired</span>
+                </button>
+              </div>
+            </fieldset>
+
+            <label class="note-label" for="mood-note">Anything behind that feeling?</label>
+            <textarea id="mood-note" name="note" maxlength="180" rows="3" placeholder="A thought, a moment, or just a few words…"></textarea>
+            <div class="form-footer">
+              <span class="character-count" id="character-count">0 / 180</span>
+              <button class="save-button" type="submit">
+                <span id="save-label">Save today's check-in</span>
+                <span class="save-arrow" aria-hidden="true">↗</span>
+              </button>
+            </div>
+            <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <div class="side-column">
+          <section class="summary-panel" aria-labelledby="summary-title">
+            <div class="summary-topline">
+              <p class="eyebrow">YOUR PATTERN</p>
+              <span class="summary-spark" aria-hidden="true">✳</span>
+            </div>
+            <h2 id="summary-title">Your most common mood</h2>
+            <div class="summary-mood" id="summary-mood">
+              <span class="summary-emoji" id="summary-emoji" aria-hidden="true">—</span>
+              <div>
+                <p class="summary-name" id="summary-name">Not yet known</p>
+                <p class="summary-count" id="summary-count">Check in to start your story</p>
+              </div>
+            </div>
+            <div class="summary-rule"></div>
+            <p class="total-count"><span id="entry-count">0</span> <span id="entry-label">days checked in</span></p>
+          </section>
+
+          <section class="history-section" aria-labelledby="history-title">
+            <div class="history-heading">
+              <div>
+                <p class="eyebrow">LOOKING BACK</p>
+                <h2 id="history-title">Recent check-ins</h2>
+              </div>
+              <span class="history-count" id="history-count">0</span>
+            </div>
+            <div class="history-list" id="history-list" aria-live="polite"></div>
+          </section>
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <span>Small check-ins count.</span>
+        <span>Your entries stay on this device.</span>
+      </footer>
+    </main>
+  </body>
+</html>
